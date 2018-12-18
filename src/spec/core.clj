@@ -48,7 +48,7 @@
                                ::container-ids
                                ::quantity]))
 
-(s/def ::items (s/coll-of ::item :min-count 5000))
+(s/def ::items (s/coll-of ::item :min-count 3))
 
 ;asn
 (s/def ::asn-id uuid?)
@@ -64,7 +64,7 @@
                      :opt-un [::deliverynote-id]))
 
 (s/conform ::asn {
-                  :asn-number      (gen/generate (gen/uuid))
+                  :asn-id      (gen/generate (gen/uuid))
                   :deliverynote-id (gen/generate (s/gen ::string-40))
                   :eta             (gen/generate (s/gen ::eta))
                   :asn-type        (gen/generate (s/gen ::asn-type))
